@@ -31,7 +31,7 @@ namespace notColour
                         for (int y = 0; y < workingImage.Height; y++)
                         {
                             var pixel = workingImage.GetPixel(x, y);
-                            int average = (int)(pixel.R*0.21 + pixel.G*0.72 + pixel.B*0.07);
+                            int average = (int)(pixel.R*0.21 + pixel.G*0.72 + pixel.B*0.07); // weighted average based on human perception
                             Color BWpixel = Color.FromArgb(average, average, average);
                             workingImage.SetPixel(x,y,BWpixel);
                         }
@@ -47,7 +47,7 @@ namespace notColour
             }
         }
 
-        private string getExtension(string path)
+        private string getExtension(string path) // couldn't find built in method
         {
             List<char> preresult = new List<char>();
             int l = path.Length - 1;
